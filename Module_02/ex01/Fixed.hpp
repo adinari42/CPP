@@ -23,8 +23,11 @@ class Fixed
       Fixed (const float floatNum);
       Fixed (const Fixed &a);
       ~Fixed();
+      float toFloat( void ) const;
+      int toInt( void ) const;
       //copy assignment operator overload.
-      Fixed &operator = (const Fixed &a);
+      Fixed &operator=(const Fixed &a);
+      friend std::ostream &operator<<(std::ostream& os, const Fixed &a);
       void setRawBits( int const raw );
       int getRawBits( void ) const;
       //destructor.
