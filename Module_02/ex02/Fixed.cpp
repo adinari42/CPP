@@ -61,36 +61,36 @@ Fixed &Fixed::operator=(const Fixed &a)
 	/*comparison operators overload*/
 	bool operator==(const Fixed &n1, const Fixed &n2)
 	{
-		return (n1.getRawBits() == n2.getRawBits());
+		return (n1.toFloat() == n2.toFloat());
 	}
 	bool operator!=(const Fixed &n1, const Fixed &n2)
 	{
-		return (n1.getRawBits() != n2.getRawBits());
+		return (n1.toFloat() != n2.toFloat());
 	}
 	bool operator<(const Fixed &n1, const Fixed &n2)
 	{
-		return (n1.getRawBits() < n2.getRawBits());
+		return (n1.toFloat() < n2.toFloat());
 	}
 	bool operator>(const Fixed &n1, const Fixed &n2)
 	{
-		return (n1.getRawBits() > n2.getRawBits());
+		return (n1.toFloat() > n2.toFloat());
 	}
 	bool operator<=(const Fixed &n1, const Fixed &n2)
 	{
-		return (n1.getRawBits() <= n2.getRawBits());
+		return (n1.toFloat() <= n2.toFloat());
 	}
 	bool operator>=(const Fixed &n1, const Fixed &n2)
 	{
-		return (n1.getRawBits() >= n2.getRawBits());
+		return (n1.toFloat() >= n2.toFloat());
 	}
 	/*arithmetic operators overload*/
 	Fixed operator+(const Fixed &a, const Fixed &b)
 	{
-		return(a.getRawBits() + a.getRawBits());
+		return(a.toFloat() + a.toFloat());
 	}
 	Fixed operator-(const Fixed &a, const Fixed &b)
 	{
-		return(a.getRawBits() - a.getRawBits());
+		return(a.toFloat() - a.toFloat());
 	}
 	Fixed operator*(const Fixed &a, const Fixed &b)
 	{
@@ -98,7 +98,7 @@ Fixed &Fixed::operator=(const Fixed &a)
 	}
 	Fixed operator/(const Fixed &a, const Fixed &b)
 	{
-		return(a.getRawBits() / a.getRawBits());
+		return(a.toFloat() / a.toFloat());
 	}
 	Fixed &Fixed::operator++(void)//++x
 	{
