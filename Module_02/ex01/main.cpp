@@ -7,14 +7,7 @@ Fixed const c( 42.42f );
 Fixed const d( b );
 a = Fixed( 1234.4321f );
 
-// int		k = 123;
-// float	k = 123.456;
-// float	A;
-// A = (float)(k) / (float)(1 << 8);
-// A = roundf(A * (1 << 8));
-// A = A >> 8;
-// A = A << 8;
-// std::cout << "A = " << A << std::endl;
+
 std::cout << "a is " << a << std::endl;
 std::cout << "b is " << b << std::endl;
 std::cout << "c is " << c << std::endl;

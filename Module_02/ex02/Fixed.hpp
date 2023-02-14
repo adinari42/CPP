@@ -41,6 +41,12 @@ class Fixed
       friend Fixed operator/(const Fixed &a, const Fixed &b);
       Fixed &operator++(void);//pre increment operator
       Fixed operator++(int);//post increment operator
+      Fixed &operator--(void);//pre decrement operator
+      Fixed operator--(int);//post decrement operator
+      static const Fixed &min(const Fixed &a, const Fixed &b);
+      static Fixed &min(Fixed &a, Fixed &b);
+      static const Fixed &max(const Fixed &a, const Fixed &b);
+      static Fixed &max(Fixed &a, Fixed &b);
       void setRawBits( int const raw );
       int getRawBits( void ) const;
       //destructor.

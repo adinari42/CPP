@@ -94,6 +94,7 @@ Fixed &Fixed::operator=(const Fixed &a)
 	}
 	Fixed operator*(const Fixed &a, const Fixed &b)
 	{
+		// return(a.fixed_point_val * b.fixed_point_val);
 		return(a.toFloat() * b.toFloat());
 	}
 	Fixed operator/(const Fixed &a, const Fixed &b)
@@ -110,6 +111,50 @@ Fixed &Fixed::operator=(const Fixed &a)
 		Fixed res = *this;
 		++*this;
 		return (res);
+	}
+	Fixed &Fixed::operator--(void)//--
+	{
+		fixed_point_val--;
+		return (*this);
+	}
+	Fixed Fixed::operator--(int)//x--
+	{
+		Fixed res = *this;
+		--*this;
+		return (res);
+	}
+	const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+	{
+		if (a <= b)
+			return(a);
+		// else if (b < a)
+		return(b);
+	}
+	Fixed &Fixed::min(Fixed &a, Fixed &b)
+	{
+		if (a <= b)
+			return(a);
+		// else if (b < a)
+		return(b);
+	}
+	const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+	{
+		Fixed res;
+		if (a > b)
+		{	
+			// res = a;
+			return (a);
+		}
+		// else if (b > a)
+		// res = b;
+		return (b);
+	}
+	Fixed &Fixed::max(Fixed &a, Fixed &b)
+	{
+		if (a >= b)
+			return(a);
+		// else if (b > a)
+		return(b);
 	}
 
 //An overload of the insertion («) operator that inserts a floating-point representation

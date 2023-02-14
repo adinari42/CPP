@@ -8,6 +8,7 @@ void	HumanA::attack(void)
 
 HumanA::HumanA(std::string name_ , class::Weapon &Weapon_) : name(name_), Weapon(Weapon_)
 {
+	/*second way of initialization*/
 	// this->name = nam;
 	// this->Weapon = Weap;
 }
