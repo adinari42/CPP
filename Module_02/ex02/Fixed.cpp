@@ -22,7 +22,15 @@ Fixed::Fixed(const float floatNum)
 	or else it will be incorrect (42.418)*/
 	fixed_point_val = roundf(floatNum * (1 << fract_bit));
 }
-/**************/
+
+//copy constructor	.
+Fixed::Fixed (const Fixed &a) 
+{
+	// std::cout << "Copy constructor called" << std::endl;
+	this->fixed_point_val = a.getRawBits();
+}
+
+/**************************************/
 
 // that converts the fixed-point value to a floating-point value.
 float Fixed::toFloat( void ) const
@@ -42,13 +50,7 @@ int Fixed::toInt( void ) const
 	return (intRes);
 }
 
-
-//copy constructor	.
-Fixed::Fixed (const Fixed &a) 
-{
-	// std::cout << "Copy constructor called" << std::endl;
-	this->fixed_point_val = a.getRawBits();
-}
+/**************************************/
 
 //an operator overload basically "overloads" the given operator like = sign
 //so you can customize it's behaviour whenever it's called with the Fixed class
@@ -94,7 +96,6 @@ Fixed &Fixed::operator=(const Fixed &a)
 	}
 	Fixed operator*(const Fixed &a, const Fixed &b)
 	{
-		// return(a.fixed_point_val * b.fixed_point_val);
 		return(a.toFloat() * b.toFloat());
 	}
 	Fixed operator/(const Fixed &a, const Fixed &b)
@@ -112,7 +113,7 @@ Fixed &Fixed::operator=(const Fixed &a)
 		++*this;
 		return (res);
 	}
-	Fixed &Fixed::operator--(void)//--
+	Fixed &Fixed::operator--(void)//--x
 	{
 		fixed_point_val--;
 		return (*this);
@@ -127,33 +128,25 @@ Fixed &Fixed::operator=(const Fixed &a)
 	{
 		if (a <= b)
 			return(a);
-		// else if (b < a)
 		return(b);
 	}
 	Fixed &Fixed::min(Fixed &a, Fixed &b)
 	{
 		if (a <= b)
 			return(a);
-		// else if (b < a)
 		return(b);
 	}
 	const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 	{
 		Fixed res;
 		if (a > b)
-		{	
-			// res = a;
 			return (a);
-		}
-		// else if (b > a)
-		// res = b;
 		return (b);
 	}
 	Fixed &Fixed::max(Fixed &a, Fixed &b)
 	{
 		if (a >= b)
 			return(a);
-		// else if (b > a)
 		return(b);
 	}
 

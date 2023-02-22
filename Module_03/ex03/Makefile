@@ -1,10 +1,10 @@
 FLAGS = -Wall -Wextra -Werror  -Wshadow -Wno-shadow -std=c++98
 NAME = ex03
-SRC =	main.cpp\
+SRC =	DiamondTrap.cpp\
 		ClapTrap.cpp\
 		ScavTrap.cpp\
-		FragTrap.cpp\
-		DiamondTrap.cpp
+		FragTrap.cpp \
+		main.cpp
 	
 
 OBJ = 	$(SRC:.cpp=.o)

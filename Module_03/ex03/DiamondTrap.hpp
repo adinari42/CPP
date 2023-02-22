@@ -3,12 +3,12 @@
 
 #include "FragTrap.hpp"
 #include "ScavTrap.cpp"
-// #include "ClapTrap.hpp"
-class DiamondTrap : public FragTrap, public ScavTrap
+#include "ClapTrap.hpp"
+class DiamondTrap : public FragTrap, public ScavTrap// ,
 {
 	public:
 		DiamondTrap(std::string name_);
-		void whoAmI(void);
+		// void whoAmI(void);
 };
 
 #endif

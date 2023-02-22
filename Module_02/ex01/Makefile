@@ -1,5 +1,5 @@
 FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = OCFC
+NAME = ex01
 SRC =	main.cpp\
 		Fixed.cpp
 

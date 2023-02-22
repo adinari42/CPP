@@ -22,9 +22,15 @@ Fixed::Fixed(const float floatNum)
 	or else it will be incorrect (42.418)*/
 	fixed_point_val = roundf(floatNum * (1 << fract_bit));
 }
-/**************/
+//copy constructor	.
+Fixed::Fixed (const Fixed &a) 
+{
+	std::cout << "Copy constructor called" << std::endl;
+	this->fixed_point_val = a.getRawBits();
+}
+/**************************************/
 
-// that converts the fixed-point value to a floating-point value.
+//converts the fixed-point value to a floating-point value.
 float Fixed::toFloat( void ) const
 {
 	//division by 2^fract_bit bitshifts the number to the right, creating fractional part
@@ -34,7 +40,7 @@ float Fixed::toFloat( void ) const
 	return (floatRes);
 }
 
-// that converts the fixed-point value to an integer value
+//converts the fixed-point value to an integer value
 int Fixed::toInt( void ) const
 {
 	//division by 2^fract_bit binary shifts the number to the right, creating integer part
@@ -42,13 +48,8 @@ int Fixed::toInt( void ) const
 	return (intRes);
 }
 
+/**************************************/
 
-//copy constructor	.
-Fixed::Fixed (const Fixed &a) 
-{
-	std::cout << "Copy constructor called" << std::endl;
-	this->fixed_point_val = a.getRawBits();
-}
 
 //an operator overload basically "overloads" the given operator like = sign
 //so you can customize it's behaviour whenever it's called with the Fixed class
@@ -71,6 +72,10 @@ std::ostream &operator<<(std::ostream& os, const Fixed &a)
 	os << a.toFloat();
 	return(os);
 }
+
+
+/**************************************/
+
 
 Fixed::~Fixed(void)
 {
