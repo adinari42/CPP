@@ -27,18 +27,17 @@ class Fixed
       int toInt( void ) const;
       //copy assignment operator overload.
       Fixed &operator=(const Fixed &a);
-      friend std::ostream &operator<<(std::ostream& os, const Fixed &a);
-      friend bool operator==(const Fixed &n1, const Fixed &n2);
-      friend bool operator!=(const Fixed &n1, const Fixed &n2);
-      friend bool operator<(const Fixed &n1, const Fixed &n2);
-      friend bool operator>(const Fixed &n1, const Fixed &n2);
-      friend bool operator<=(const Fixed &n1, const Fixed &n2);
-      friend bool operator>=(const Fixed &n1, const Fixed &n2);
-      friend Fixed operator+(const Fixed &a, const Fixed &b);
-      friend Fixed operator-(const Fixed &a, const Fixed &b);
+      bool operator==(const Fixed &n2);
+      bool operator!=(const Fixed &n2);
+      bool operator<(const Fixed &n2);
+      bool operator>(const Fixed &n2);
+      bool operator<=(const Fixed &n2);
+      bool operator>=(const Fixed &n2);
+      Fixed operator+(const Fixed &b);
+      Fixed operator-(const Fixed &b);
       // Fixed operator*(const Fixed &a, const Fixed &b);
-      friend Fixed operator*(const Fixed &a, const Fixed &b);
-      friend Fixed operator/(const Fixed &a, const Fixed &b);
+      Fixed operator*(const Fixed &b);
+      Fixed operator/(const Fixed &b) const;
       Fixed &operator++(void);//pre increment operator
       Fixed operator++(int);//post increment operator
       Fixed &operator--(void);//pre decrement operator
@@ -51,5 +50,6 @@ class Fixed
       int getRawBits( void ) const;
       //destructor.
 };
+std::ostream &operator<<(std::ostream& os, const Fixed &a);
 
 #endif

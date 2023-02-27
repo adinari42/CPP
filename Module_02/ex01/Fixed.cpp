@@ -62,6 +62,17 @@ Fixed &Fixed::operator=(const Fixed &a)
 
 //An overload of the insertion («) operator that inserts a floating-point representation
 // of the fixed-point number into the output stream object passed as parameter
+
+// std::ostream &Fixed::operator<<(std::ostream &os) const
+// {
+// 	/*
+// 		uses toFloat() to devide the number by 2^8 because the current value is
+// 		multiplied by 2^8 and is bigger than the original.
+// 	*/
+// 	// os << "insertion assignment operator called" << std::endl;
+// 	os << this->toFloat();
+// 	return(os);
+// }
 std::ostream &operator<<(std::ostream& os, const Fixed &a)
 {
 	/*

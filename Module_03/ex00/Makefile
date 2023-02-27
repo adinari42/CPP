@@ -3,7 +3,7 @@ NAME = ex00
 SRC =	ClapTrap.cpp\
 		main.cpp
 
-OBJ = 	$(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 

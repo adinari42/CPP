@@ -5,8 +5,12 @@
 
 class ScavTrap: virtual public ClapTrap {
 	public:
+		ScavTrap();
 		ScavTrap(std::string name_);
+		ScavTrap(const ScavTrap &other);
+		ScavTrap &operator=(const ScavTrap &other);
+		~ScavTrap(void);
 		void guardGate();
-		// ~ScavTrap(void);
 };
+
 #endif

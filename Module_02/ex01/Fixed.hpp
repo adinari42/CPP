@@ -30,7 +30,6 @@ class Fixed
       friend std::ostream &operator<<(std::ostream& os, const Fixed &a);
       void setRawBits( int const raw );
       int getRawBits( void ) const;
-      //destructor.
 };
 
 #endif

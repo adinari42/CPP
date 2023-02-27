@@ -10,37 +10,28 @@
 #include <vector>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string	name;
 		int		HP;
 		int		energy;
 		int		AD;
 	public:
+		ClapTrap();
 		ClapTrap(std::string name_);
+		ClapTrap(const ClapTrap &other);
 		~ClapTrap(void);
+		ClapTrap &operator=(const ClapTrap &other);
 		void	attack(const std::string& target);//read only ref
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-		void setName(std::string name_)
-		{
-			name = name_;
-		};
-		void setHP(int HP_)
-		{
-			HP = HP_;
-		};
-		void setAD(int AD_)
-		{
-			AD = AD_;
-		};
-		void setEnergy(int energy_)
-		{
-			energy = energy_;
-		};
-		std::string getName(void)
-		{
-			return name;
-		};
+		void setName(std::string name_);
+		std::string getName(void);
+		void setHP(int HP_);
+		int getHP(void);
+		void setAD(int AD_);
+		int getAD(void);
+		void setEnergy(int energy_);
+		int getEnergy(void);
 };
 
 #endif
