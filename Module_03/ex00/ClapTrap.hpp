@@ -10,7 +10,7 @@
 #include <vector>
 
 class ClapTrap {
-	protected:
+	private:
 		std::string	name;
 		int		HP;
 		int		energy;

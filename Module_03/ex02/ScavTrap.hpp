@@ -3,13 +3,15 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap {
+class ScavTrap: public ClapTrap 
+{
 	public:
 		ScavTrap();
 		ScavTrap(std::string name_);
 		ScavTrap(const ScavTrap &other);
 		ScavTrap &operator=(const ScavTrap &other);
 		~ScavTrap(void);
+		void	attack(const std::string& target);//read only ref
 		void guardGate();
 };
 
