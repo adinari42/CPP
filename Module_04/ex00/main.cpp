@@ -12,7 +12,8 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound(); //will output the dog sound!
 	meta->makeSound(); //will output the default sound!
-
+	delete meta;
+	delete i;
 	// const WrongAnimal* meta = new WrongAnimal();
 	// // const Animal* j = new Dog();
 	// const WrongAnimal* i = new WrongCat();
@@ -21,6 +22,6 @@ int main()
 	// i->makeSound(); //will output the cat sound!
 	// // j->makeSound(); //will output the dog sound!
 	// meta->makeSound(); //will output the default sound!
-
+system("leaks ex00");
 	return 0;
 }

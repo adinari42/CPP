@@ -19,6 +19,8 @@ class Brain
 		Brain(const Brain &a);
 		~Brain();
 		Brain &operator= (const Brain& a);
+		void addThought(std::string thought);
+		void showThough();
 };
 
 #endif

@@ -1,9 +1,6 @@
 FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = ex01
-SRC =	Animal.cpp\
-		Cat.cpp\
-		Dog.cpp\
-		Brain.cpp\
+NAME = ex00
+SRC =	Bureaucrat.cpp\
 		main.cpp
 
 OBJ = 	$(SRC:.cpp=.o)

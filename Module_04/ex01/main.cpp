@@ -1,23 +1,36 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongCat.hpp"
 
 int main()
 {
-	// const Animal* j = new Dog();
-	// const Animal* i = new Cat();
-	// delete j;//should not create a leak
-	// delete i;
+	const Animal *k = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	delete j;//should not create a leak
+	delete i;
 
+
+	Animal *zoo[6] = 
 	{
-		Dog* a = new Dog();
-		Dog* b = new Dog(*a);
+		new Dog(),
+		new Dog(),
+		new Dog(),
+		new Cat(),
+		new Cat(),
+		new Cat(),
+	};
+	for (int j = 0; j < 6; j++)
+		delete zoo[j];
 
-		a->getBrain()->print();
-		delete a;
+	Dog* a = new Dog();
+	Dog* b = new Dog(*a);
+	a->getBrain()->addThought("dog thought!");
+	a->getBrain()->addThought("im actually a raccoon!");
+	a->getBrain()->showThough();
+	delete a;//try switching constructor to shallow copy, this part will cause an error
+	delete b;
+	b->getBrain()->showThough();
 
-		b->getBrain()->print();
-	}
 	system("leaks ex01");
 	return 0;
 }

@@ -16,7 +16,7 @@ class Animal
 	public:
 		Animal();
 		Animal(const Animal &other);
-		virtual ~Animal(void);
+		virtual ~Animal(void);//allows for derived classes to override the constructor
 		Animal &operator=(const Animal &other);
 		void setType(std::string type_);
 		std::string getType(void) const;

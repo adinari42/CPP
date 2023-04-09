@@ -10,13 +10,20 @@ Dog::Dog()
 Dog::Dog(const Dog &other)
 {
 	type = other.type;
-	dogBrain = new Brain(*other.dogBrain);
+	std::cout << "Dog copy constructor: created a weird looking Animal of " << type << " type" << std::endl;
+	// dogBrain = other.dogBrain; //causes shallow copy, copies address of brain so it is shared between this and other
+	dogBrain = new Brain(*other.dogBrain);//deep copy
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog deconstructor: animal of type " << type << " is put to rest" << std::endl;
+	std::cout << "Dog destructor: animal of type " << type << " is put to rest" << std::endl;
 	delete (dogBrain);
+}
+
+Brain *Dog::getBrain(void)
+{
+	return (dogBrain);
 }
 
 Dog &Dog::operator=(const Dog& other)
@@ -27,5 +34,5 @@ Dog &Dog::operator=(const Dog& other)
 
 void Dog::makeSound() const
 {
-	std::cout << type << " Woof Woof" << std::endl;
+	std::cout << type << " Woof Woof bi###" << std::endl;
 }

@@ -24,5 +24,5 @@ Dog &Dog::operator=(const Dog& other)
 
 void Dog::makeSound() const
 {
-	std::cout << type << " Woof Woof" << std::endl;
+	std::cout << type << " Woof Woof bi#$*%" << std::endl;
 }
