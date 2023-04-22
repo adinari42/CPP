@@ -34,16 +34,10 @@ Form::Form(const std::string name_, const int signGrade, const int execGrade) :
 {
 	try
 	{
-		if (grade_to_sign > 1 && grade_to_sign < 150)
-			std::cout << getName() << " grade is valid" << std::endl;
-		else
-		{
-			if (grade_to_sign < 1)
-				throw GradeTooHighException();
-			else if (grade_to_sign > 150)
-				throw GradeTooLowException();
-			
-		}
+		if (grade_to_sign < 1)
+			throw GradeTooHighException();
+		else if (grade_to_sign > 150)
+			throw GradeTooLowException();
 	}
 	catch (std::exception & e)
 	{

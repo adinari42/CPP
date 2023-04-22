@@ -34,15 +34,10 @@ Bureaucrat::Bureaucrat(std::string name_ , int grade_) : name(name_), grade(grad
 	// std::cout << "normal constructor!" << std::endl;
 	try
 	{
-		if (grade > 1 && grade < 150)
-			std::cout << getName() << " grade is valid" << std::endl;
-		else
-		{
 			if (grade < 1)
 				throw GradeTooHighException();
 			else if (grade > 150)
 				throw GradeTooLowException();
-		}
 	}
 	catch (std::exception & e)
 	{

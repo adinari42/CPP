@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // std::exception is the base class for all standard exceptions
 //and it defines a virtual member function called what()
@@ -43,7 +43,6 @@ Bureaucrat::Bureaucrat(std::string name_ , int grade_) : name(name_), grade(grad
 	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
-		exit(1);
 	}
 }
 
@@ -71,10 +70,26 @@ void Bureaucrat::decrGrade(void)
 {
 	grade += 1;
 }
-void Bureaucrat::signForm(Form _form)
+void Bureaucrat::signAForm(std::string formName)
 {
-	std::cout << getName() << " signed " << _form.getName() << std::endl; 
+	std::cout << getName() << " signed " << formName << std::endl; 
 }
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << getName() << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+		exit(1);
+	}
+}
+
+
 
 std::ostream &operator<<(std::ostream& os, Bureaucrat &bcrat)
 {
