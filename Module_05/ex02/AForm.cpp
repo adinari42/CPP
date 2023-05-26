@@ -1,19 +1,5 @@
 #include "AForm.hpp"
 
-// class AForm::GradeTooHighException : public std::exception {
-// public:
-// 	const char* what() const throw() {
-// 		return "AForm exception: Grade is too high";
-// 	}
-// };
-
-// class AForm::GradeTooLowException : public std::exception {
-// public:
-// 	const char* what() const throw() {
-// 		return "AForm exception: Grade is too Low";
-// 	}
-// };
-
 AForm::AForm() : name("default AForm"), signature(false), grade_to_sign(50), grade_to_exec(100)
 {
 }
@@ -107,10 +93,6 @@ void AForm::beSigned(Bureaucrat bcrat)
 		exit(1);
 	}
 }
-// void AForm::execute(Bureaucrat const & executor) const
-// {
-// 	(void)executor;
-// }
 
 std::ostream &operator<<(std::ostream& os, AForm &AForm)
 {

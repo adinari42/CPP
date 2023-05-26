@@ -63,13 +63,32 @@ int Bureaucrat::getGrade(void) const
 
 void Bureaucrat::incrGrade(void)
 {
-	grade -= 1;
+	try
+	{
+		if (grade - 1 < 1)
+			throw GradeTooHighException();
+		grade -= 1;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 void Bureaucrat::decrGrade(void)
 {
-	grade += 1;
+	try
+	{
+		if (grade + 1 > 150)
+			throw GradeTooHighException();
+		grade += 1;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
+
 void Bureaucrat::signAForm(std::string formName)
 {
 	std::cout << getName() << " signed " << formName << std::endl; 
@@ -85,11 +104,8 @@ void	Bureaucrat::executeForm(AForm const & form)
 	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
-		exit(1);
 	}
 }
-
-
 
 std::ostream &operator<<(std::ostream& os, Bureaucrat &bcrat)
 {

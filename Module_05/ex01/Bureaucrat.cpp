@@ -46,7 +46,6 @@ Bureaucrat::Bureaucrat(std::string name_ , int grade_) : name(name_), grade(grad
 		exit(1);
 	}
 }
-
 Bureaucrat::~Bureaucrat()
 {
 	// std::cout << "deleted boring bureaucrat " << name << std::endl;
@@ -64,13 +63,32 @@ int Bureaucrat::getGrade(void) const
 
 void Bureaucrat::incrGrade(void)
 {
-	grade -= 1;
+	try
+	{
+		if (grade - 1 < 1)
+			throw GradeTooHighException();
+		grade -= 1;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 void Bureaucrat::decrGrade(void)
 {
-	grade += 1;
+	try
+	{
+		if (grade + 1 > 150)
+			throw GradeTooHighException();
+		grade += 1;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
+
 void Bureaucrat::signForm(Form _form)
 {
 	std::cout << getName() << " signed " << _form.getName() << std::endl; 

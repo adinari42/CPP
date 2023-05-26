@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat() : name("shrimp"), grade(69)
 	// std::cout << "default constructor!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other):name(other.name),grade(other.grade)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
 {
 	// std::cout << "copy constructor : " << std::endl;
 }
@@ -34,10 +34,10 @@ Bureaucrat::Bureaucrat(std::string name_ , int grade_) : name(name_), grade(grad
 	// std::cout << "normal constructor!" << std::endl;
 	try
 	{
-			if (grade < 1)
-				throw GradeTooHighException();
-			else if (grade > 150)
-				throw GradeTooLowException();
+		if (grade < 1)
+			throw GradeTooHighException();
+		else if (grade > 150)
+			throw GradeTooLowException();
 	}
 	catch (std::exception & e)
 	{
@@ -63,12 +63,30 @@ int Bureaucrat::getGrade(void) const
 
 void Bureaucrat::incrGrade(void)
 {
-	grade -= 1;
+	try
+	{
+		if (grade - 1 < 1)
+			throw GradeTooHighException();
+		grade -= 1;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 void Bureaucrat::decrGrade(void)
 {
-	grade += 1;
+	try
+	{
+		if (grade + 1 > 150)
+			throw GradeTooHighException();
+		grade += 1;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream& os, Bureaucrat &bcrat)

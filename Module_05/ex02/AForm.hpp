@@ -33,6 +33,10 @@ class AForm
 		int getGrade(void) const;
 		void	setSignature(void);
 		AForm &operator= (const AForm& a);
+		/*By providing the full definitions of the exception classes within the AForm class declaration,
+		compiler can properly instantiate them when they are used in the member functions.*/
+		//this problem happens mainly when we use derived classes and
+		//they need to access the full implementation of the exceptions at once
 		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const throw() {
@@ -51,7 +55,7 @@ class AForm
 				return "AForm exception: Form is not signed!";
 			}
 		};
-		virtual void execute(Bureaucrat const & executor) const  = 0;
+		virtual void execute(Bureaucrat const & executor) const  = 0;//pure virtual member function , has to be overriden by subclass
 };
 
 std::ostream &operator<<(std::ostream& os, AForm &AForm);
