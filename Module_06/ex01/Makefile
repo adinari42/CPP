@@ -1,5 +1,5 @@
 FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = ex01
+NAME = Serializer
 SRC =	Serializer.cpp\
 		main.cpp
 

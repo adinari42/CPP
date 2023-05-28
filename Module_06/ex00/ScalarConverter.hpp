@@ -22,7 +22,12 @@ class ScalarConverter
 		static char charRes;
 		static int	type;
 		static int	res;
-
+/*
+it's not necessary to provide implementations for the constructors
+and copy assignment operator in a static class that cannot be instantiated,
+explicitly declaring them as private can serve as a way to 
+communicate the intent of the class and prevent their usage.
+*/
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &a);
 		ScalarConverter &operator= (const ScalarConverter& a);

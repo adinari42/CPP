@@ -27,7 +27,7 @@ class Base
 		static void identify(Base &p);
 };
 
-class D : public Base {};
+class D : public Base {};//this is extra, used to test identifying 
 
 #endif
 

@@ -5,6 +5,9 @@ int ScalarConverter::intRes;
 float ScalarConverter::floatRes;
 double ScalarConverter::doubleRes;
 
+
+//no need in providing implementation for constructors
+//since they will never be used
 ScalarConverter::ScalarConverter()
 {
 	
@@ -22,7 +25,7 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter& a)
 {
-	
+	return (*this);//just to shut off compiler warning
 }
 
 void ScalarConverter::convert(std::string literal_)
@@ -92,41 +95,4 @@ void ScalarConverter::convert(std::string literal_)
 	catch (const std::out_of_range&){
 		std::cout << "ERROR! literal is out of range" << std::endl;
 	}
-
-	/*getting type*/
-	// if (literal_.length() == 1)
-	// {
-	// 	if (std::isdigit(literal_[0]))
-	// 		type = 1;
-	// 	else if (std::isprint(literal_[0]))
-	// 		type = 4
-	// 	else
-	// 		std::cout << "error : literal doesn't fit any type" << std::endl;
-	// }
-	// else if (stod(literal_))
-	// 	res = 2;
-	// else if (stof(literal_))
-	// 	res = 3
-
-
-	// if (stoi(literal))
-	// {
-	// 	intRes = stoi(literal_);
-	// 	res = 1;
-	// }
-	// else if ()
-	// {
-	// 	doubleRes = stod(literal_);
-	// 	res = 2;
-	// }
-	// else if ()
-	// {
-	// 	floatRes = stof(literal_);
-	// 	res = 3;
-	// }
-	// else if ()
-	// {
-	// 	charRes = literal_[0];
-	// 	res = 4;
-	// }
 }

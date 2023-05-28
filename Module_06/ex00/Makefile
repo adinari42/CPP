@@ -1,5 +1,5 @@
 FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = ex00
+NAME = convert
 SRC =	ScalarConverter.cpp\
 		main.cpp
 
