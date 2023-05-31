@@ -12,7 +12,7 @@
 #include <time.h>
 
 //using a reference is necessary when we want to know the size of the passed array
-template <typename T, size_t size> void iter (T (&arr)[size], size_t len, void (*func)(T&))
+template <typename T, size_t size> void iter (T (&arr)[size], size_t len, void (*func)(const T &))
 {
 	if (len > size)
 	{
@@ -23,6 +23,19 @@ template <typename T, size_t size> void iter (T (&arr)[size], size_t len, void (
 		func(arr[i]);
 }
 
+template<class T>
+void iter(const T* arr, size_t len, void (*f)(const T&)) {
+	for (size_t i = 0; i < len; ++i) {
+		f(arr[i]);
+	}
+}
+
+template<class T>
+void iter(T* arr, size_t len, void (*f)(T&)) {
+	for (size_t i = 0; i < len; ++i) {
+		f(arr[i]);
+	}
+}
 
 
 

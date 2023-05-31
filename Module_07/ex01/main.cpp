@@ -1,8 +1,8 @@
 #include "iter.hpp"
 
-void incr(int &n)
+void incr(const int &n)
 {
-	n++;
+	std::cout << n;
 }
 
 int main(void)
