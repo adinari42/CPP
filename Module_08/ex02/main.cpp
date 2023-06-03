@@ -54,6 +54,5 @@ int main(void)
 		}
 		std::list<int> s(mlist.begin(), mlist.end()); // Initialize std::stack with a range of elements
 	}
-
 	return 0;
 }
